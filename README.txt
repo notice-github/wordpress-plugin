@@ -101,63 +101,48 @@ You can contact us for any issue or question at contact@notice.studio.
 Releases are published on our changelog [changelog](https://changelog.notice.studio/)
 
 = 1.0.0 =
-
 - Supports Shortcode noticefaq for FAQ, Documents, Blogs
 
 = 1.1.0 =
-
 - Improved Admin Page and tested upto WordPress 6.0
 
 = 1.2.0 =
-
 - Improved Admin Page and Support for Notice Gutenberg Block
 
 = 1.2.1 =
-
 - Wordpress Tutorial Links added to Dashboard
 
 = 1.2.2 =
-
 - Plugin Readme Update
 
 = 1.2.3 =
-
 - Plugin Readme Update and tested upto WordPress 6.0.2
 
 = 1.2.4 =
-
 - Plugin Readme Update
 
 = 1.2.5 =
-
 - Improved Admin Page to Connect to Notice Editor
 
 = 1.2.6 =
-
 - Tested upto WordPress 6.0.3
 
 = 1.2.7 =
-
 - Tested upto WordPress 6.1.1
 
 = 1.2.8 =
-
 - Plugin Readme Update
 
 = 1.2.9 =
-
 - Plugin Readme Update and assets update
 
 = 1.3 =
-
 - Plugin Dashboard Page update
 
 = 1.3.1 =
-
 - Added notice integration attribute
 
 = 2.0.0=
-
 - New Gutenberg editor block
 - New Elementor widget
 - Everything is now server side rendered
@@ -165,63 +150,48 @@ Releases are published on our changelog [changelog](https://changelog.notice.stu
 == Upgrade Notice ==
 
 = 1.0.0 =
-
 - Supports Shortcode noticefaq for FAQ, Documents, Blogs
 
 = 1.1.0 =
-
 - Improved Admin Page and tested upto WordPress 6.0
 
 = 1.2.0 =
-
 - Improved Admin Page and Support for Notice Gutenberg Block
 
 = 1.2.1 =
-
 - Wordpress Tutorial Links added to Dashboard
 
 = 1.2.2 =
-
 - Plugin Readme Update
 
 = 1.2.3 =
-
 - Plugin Readme Update and tested upto WordPress 6.0.2
 
 = 1.2.4 =
-
 - Plugin Readme Update
 
 = 1.2.5 =
-
 - Improved Admin Page to Connect to Notice Editor
 
 = 1.2.6 =
-
 - Tested upto WordPress 6.0.3
 
 = 1.2.7 =
-
 - Tested upto WordPress 6.1.1
 
 = 1.2.8 =
-
 - Plugin Readme Update
 
 = 1.2.9 =
-
 - Plugin Readme Update and tutorials video added
 
 = 1.3 =
-
 - Plugin Dashboard Page Update
 
 = 1.3.1 =
-
 - Added notice integration attribute
 
 = 2.0.0 =
-
 - Brand new Notice Wordpress plugin
 - Better editor
 - New Elementor widget
