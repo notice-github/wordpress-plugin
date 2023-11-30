@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "noticefaq/block",
+  "version": "1.0.0",
+  "title": "Notice",
+  "category": "widgets",
+  "icon": "lightbulb",
+  "description": "Display any Notice",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "projectId": {
+      "type": "string"
+    }
+  },
+  "render": "file:./render.php",
+  "textdomain": "noticefaq",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}
