@@ -1,0 +1,61 @@
+.card {
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px #1e1e1e;
+  box-sizing: border-box;
+  color: #1e1e1e;
+  margin: 0;
+  outline: 1px solid transparent;
+  padding: 1em;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.card__label {
+  font-size: 18pt;
+  font-weight: 400;
+  user-select: text;
+  align-items: center;
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.card__label svg {
+  margin-right: 12px;
+}
+
+.card__instructions {
+  user-select: text;
+  margin-bottom: 1em;
+  font-size: 13px;
+}
+
+.card__fieldset {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.card .button {
+  background: #006ba1;
+  color: #fff;
+  outline: 1px solid transparent;
+  text-decoration: none;
+  text-shadow: none;
+  white-space: nowrap;
+  align-items: center;
+  border: 0;
+  border-radius: 2px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  height: 36px;
+  margin: 0;
+  padding: 6px 12px;
+  text-decoration: none;
+}

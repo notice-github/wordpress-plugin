@@ -14,6 +14,7 @@ import { __ } from "@wordpress/i18n";
 import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
 import { Button, PanelBody, Placeholder, TextControl } from "@wordpress/components";
 import { blockDefault, keyboardReturn, warning } from "@wordpress/icons";
+import { SVG, Path } from "@wordpress/primitives";
 import { useEffect, useRef, useState } from "react";
 
 /**
@@ -48,23 +49,6 @@ const useDebounce = (value, delay = 300) => {
   return debouncedValue;
 };
 
-const mandatoryFunctions = (document) => {
-  return {
-    toggleExpandable(id) {
-      const expandable = document.getElementById(id);
-      if (!expandable) return null;
-
-      const isExpanded = expandable.getAttribute("aria-expanded");
-
-      if (isExpanded === "true") {
-        expandable.setAttribute("aria-expanded", "false");
-      } else {
-        expandable.setAttribute("aria-expanded", "true");
-      }
-    },
-  };
-};
-
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -74,62 +58,34 @@ const mandatoryFunctions = (document) => {
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes, ...rest }) {
-  const containerRef = useRef(null);
   const projectId = useDebounce(attributes.projectId, 750);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  const editorWindow = () => containerRef.current.ownerDocument.defaultView;
-  const editorDocument = () => containerRef.current.ownerDocument;
+  const [block, setBlock] = useState(null);
 
   const updateProjectId = (projectId) => {
     setAttributes({ projectId });
     setError(null);
     setLoading(false);
+    setBlock(null);
   };
 
   useEffect(() => {
     setLoading(true);
-    containerRef.current.innerHTML = "";
+    setBlock(null);
   }, [attributes.projectId]);
 
   useEffect(() => {
     if (projectId) {
-      fetch(`https://bdn.notice.studio/document/${encodeURIComponent(projectId)}?format=fragmented`)
+      fetch(`https://bdn.notice.studio/blocks/${encodeURIComponent(projectId)}`)
         .then(async (res) => {
           const result = await res.json();
-
-          if (res.ok) {
-            const htmlElements = [result.body, `<style>${result.style}</style>`];
-
-            for (let node of result.head) {
-              // Exception for the <title>
-              if (node.tagName === "title") {
-                continue;
-              }
-
-              // Create the HTMLElement with browser document
-              const element = document.createElement(node.tagName);
-
-              // Assign all attributes
-              for (let [key, value] of Object.entries(node.attributes)) {
-                element.setAttribute(key, value);
-              }
-
-              // Assign innerHTML/innerText if necessary
-              if (node.innerHTML) element.innerHTML = node.innerHTML;
-              else if (node.innerText) element.innerText = node.innerText;
-
-              htmlElements.push(element.outerHTML);
-            }
-
+          if (res.ok && result.success) {
             setError(null);
-            editorWindow().$NTC = {};
-            editorWindow().$NTC[result.id] = mandatoryFunctions(editorDocument());
-            containerRef.current.innerHTML = htmlElements.join("\n");
+            setBlock(result.data);
           } else {
-            setError(result.error.message);
-            containerRef.current.innerHTML = "";
+            setError(__("Could not find", "noticefaq") + ' "' + projectId + '"');
+            setBlock(null);
           }
         })
         .finally(() => {
@@ -137,7 +93,7 @@ export default function Edit({ attributes, setAttributes, ...rest }) {
         });
     } else {
       setLoading(false);
-      containerRef.current.innerHTML = "";
+      setBlock(null);
     }
   }, [projectId]);
 
@@ -158,7 +114,20 @@ export default function Edit({ attributes, setAttributes, ...rest }) {
         error={error}
         onChangeProjectId={(val) => updateProjectId(val)}
       />
-      <div ref={containerRef}></div>
+      {projectId && !loading && !error && block != null && (
+        <Placeholder
+          icon={
+            <SVG xmlns="http://www.w3.org/2000/svg" style={{ height: "20px" }} viewBox="0 0 384 512">
+              <Path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z" />
+            </SVG>
+          }
+          label={block.data.text}
+          instructions={__(
+            "Your Notice project is loaded and will be visible and interactive on the public/preview page.",
+            "noticefaq"
+          )}
+        ></Placeholder>
+      )}
     </div>
   );
 }

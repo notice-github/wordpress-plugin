@@ -36,6 +36,34 @@ function notice_init()
 		$widgets_manager->register(new \Elementor_Notice_Widget());
 	});
 
+	//------------------//
+	// Notice shortcode //
+	//------------------//
+
+	add_shortcode('notice-block', function ($atts) {
+		extract(
+			shortcode_atts(
+				array(
+					'projectid' => ''
+				),
+				$atts
+			)
+		);
+
+		$output = '<script defer="defer" charset="UTF-8" src="https://bundle.notice.studio/index.js"></script>';
+		$output .= '<div class="notice-target-container" project-id="' . $projectid . '" notice-integration="wordpress-plugin"></div>';
+
+		return $output;
+	});
+
+	//-------------//
+	// Notice Head //
+	//-------------//
+
+	require_once __DIR__ . '/includes/head.php';
+
+	add_action('wp_head', 'notice_head', 10);
+
 	//------------//
 	// Admin Menu //
 	//------------//
