@@ -16,6 +16,8 @@ function add_block_head($target)
 	try {
 		if (array_key_exists('article', $_GET) && !empty($_GET['article'])) $target = $_GET['article'];
 
+		$target = urlencode($target);
+
 		$response = wp_remote_get("https://bdn.notice.studio/document/$target?format=fragmented&integration=wordpress-plugin&navigationType=query");
 
 		$status = wp_remote_retrieve_response_code($response);
@@ -55,6 +57,21 @@ function add_block_head($target)
 	}
 }
 
+function extract_blocks(array $elements, array $blocks = [])
+{
+	foreach ($elements as $element) {
+		if (array_key_exists('widgetType', $element) && $element['widgetType'] === 'noticefaq') {
+			$blocks[] = $element;
+		}
+
+		if (array_key_exists('elements', $element) && !empty($element['elements'])) {
+			$blocks = extract_blocks($element['elements'], $blocks);
+		}
+	}
+
+	return $blocks;
+}
+
 function notice_head()
 {
 	try {
@@ -64,26 +81,30 @@ function notice_head()
 		if ($is_elementor) {
 			$document = Elementor\Plugin::$instance->documents->get($post->ID);
 
-			$data = $document->get_elements_raw_data();
-			if (empty($data)) return;
+			$elements = $document->get_elements_raw_data();
+			if (empty($elements)) return;
 
-			$elements = $data[0]['elements'];
+			$blocks = extract_blocks($elements);
 
-			foreach ($elements as $element) {
-				if (!array_key_exists('widgetType', $element) || $element['widgetType'] !== 'noticefaq') continue;
+			foreach ($blocks as $block) {
+				if (!array_key_exists('project_id', $block['settings'])) continue;
 
-				$target = urldecode($element['settings']['project_id']);
+				$projectId = $block['settings']['project_id'];
+				if (empty($projectId)) continue;
 
-				add_block_head($target);
+				add_block_head($projectId);
 			}
 		} else {
 			$blocks = parse_blocks($post->post_content);
 
 			foreach ($blocks as $block) {
 				if ($block['blockName'] === 'noticefaq/block') {
-					$target = urldecode($block['attrs']['projectId']);
+					if (!array_key_exists('projectId', $block['attrs'])) continue;
 
-					add_block_head($target);
+					$projectId = $block['attrs']['projectId'];
+					if (empty($projectId)) continue;
+
+					add_block_head($projectId);
 				}
 			}
 		}

@@ -13,9 +13,9 @@ import { __ } from "@wordpress/i18n";
  */
 import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
 import { Button, PanelBody, Placeholder, TextControl } from "@wordpress/components";
-import { blockDefault, keyboardReturn, warning } from "@wordpress/icons";
+import { blockDefault, keyboardReturn, warning, info, check } from "@wordpress/icons";
 import { SVG, Path } from "@wordpress/primitives";
-import { useEffect, useRef, useState } from "react";
+import { cloneElement, useEffect, useRef, useState } from "react";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -122,11 +122,32 @@ export default function Edit({ attributes, setAttributes, ...rest }) {
             </SVG>
           }
           label={block.data.text}
-          instructions={__(
-            "Your Notice project is loaded and will be visible and interactive on the public/preview page.",
-            "noticefaq"
-          )}
-        ></Placeholder>
+          style={{ cursor: "default" }}
+        >
+          <div class="components-placeholder__instructions" style={{ display: "flex", alignItems: "center" }}>
+            <svg
+              width="16"
+              height="16"
+              xmlns="http://www.w3.org/2000/svg"
+              fillRule="evenodd"
+              clipRule="evenodd"
+              fill="green"
+              viewBox="0 0 24 24"
+              style={{ marginRight: "6px" }}
+            >
+              <path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm7 7.457l-9.005 9.565-4.995-5.865.761-.649 4.271 5.016 8.24-8.752.728.685z" />
+            </svg>
+            {__("Your Notice project is loaded and will be visible on the public and preview page.", "noticefaq")}
+          </div>
+          <p
+            style={{ margin: 0, color: "rgba(0, 0, 0, 0.4)", fontSize: "12px", display: "flex", alignItems: "center" }}
+          >
+            {cloneElement(info, {
+              style: { width: "16px", height: "16px", marginRight: "6px", fill: "cornflowerblue" },
+            })}
+            Project ID = "{projectId}"
+          </p>
+        </Placeholder>
       )}
     </div>
   );
