@@ -142,7 +142,7 @@ Releases are published on our changelog [changelog](https://changelog.notice.stu
 = 1.3.1 =
 - Added notice integration attribute
 
-= 2.0.0=
+= 2.0.0 =
 - New Gutenberg editor block
 - New Elementor widget
 - Everything is now server side rendered
