@@ -1,14 +1,24 @@
-=== Notice - Editor for FAQ, Blog, Documentation & more ===
-Contributors: jonasroussel, qchantelnotice
-Tags: notice, editor, faq, blog, documentation
+=== Accordion FAQ / Blog Article - Notice page builder ===
+Contributors: qchantelnotice, jonasroussel
+Tags: notice, faq, blog, article, ai, page builder, elementor, gutenberg
 Requires at least: 5.0
 Requires PHP: 6.0
 Tested up to: 6.4.2
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-One place to Create, Translate & Publish all web content
+// TODO
+
+
+
+
+
+
+
+
+
+
 
 == Description ==
 
@@ -48,6 +58,21 @@ With the default configuration, this plugin, in itself, does not:
 
 If you activate certain features in this plugin, the contact form submitter’s personal data including their IP address may be sent to the service provider.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 == Installation ==
 
 ### **AUTOMATIC INSTALLATION VIA THE PUGLIN LIBRARY**
@@ -65,6 +90,20 @@ You can find our plugin at this address: [https://wordpress.org/plugins/notice-
 7. Drag and drop the Notice block anywhere you want on your page and paste the ID project
 8. Click on Update, and than View page to check your project live
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 == Frequently Asked Questions ==
 
 Do you have questions or issues with Notice ? Use these support channels appropriately.
@@ -73,6 +112,30 @@ Do you have questions or issues with Notice ? Use these support channels appropr
 2. [Wordpress documentation](https://integrations.mynotice.io/wordpress-c2f5)
 
 You can contact us for any issue or question at contact@notice.studio.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 == Screenshots ==
 
@@ -95,6 +158,32 @@ You can contact us for any issue or question at contact@notice.studio.
 9. Extra features: translate your content in 100+ languages and offer a better experience for your audience
 
 10. Extra feature: gain insights with our Analytics - check visits, location and device info of your users, what they’re looking for on the search bar, and much more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 == Changelog ==
 
@@ -146,53 +235,3 @@ Releases are published on our changelog [changelog](https://changelog.notice.stu
 - New Gutenberg editor block
 - New Elementor widget
 - Everything is now server side rendered
-
-== Upgrade Notice ==
-
-= 1.0.0 =
-- Supports Shortcode noticefaq for FAQ, Documents, Blogs
-
-= 1.1.0 =
-- Improved Admin Page and tested upto WordPress 6.0
-
-= 1.2.0 =
-- Improved Admin Page and Support for Notice Gutenberg Block
-
-= 1.2.1 =
-- Wordpress Tutorial Links added to Dashboard
-
-= 1.2.2 =
-- Plugin Readme Update
-
-= 1.2.3 =
-- Plugin Readme Update and tested upto WordPress 6.0.2
-
-= 1.2.4 =
-- Plugin Readme Update
-
-= 1.2.5 =
-- Improved Admin Page to Connect to Notice Editor
-
-= 1.2.6 =
-- Tested upto WordPress 6.0.3
-
-= 1.2.7 =
-- Tested upto WordPress 6.1.1
-
-= 1.2.8 =
-- Plugin Readme Update
-
-= 1.2.9 =
-- Plugin Readme Update and tutorials video added
-
-= 1.3 =
-- Plugin Dashboard Page Update
-
-= 1.3.1 =
-- Added notice integration attribute
-
-= 2.0.0 =
-- Brand new Notice Wordpress plugin
-- Better editor
-- New Elementor widget
-- Server side rendered in the frontend
