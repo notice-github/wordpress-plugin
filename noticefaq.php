@@ -6,7 +6,7 @@
  * Description:       The official Notice Wordpress Plugin. Notice allows you to create, translate, and deploy content quickly and easily everywhere on the web.
  * Requires at least: 5.0
  * Requires PHP:      6.0
- * Version:           2.0.0
+ * Version:           2.1.0
  * Author:            Notice
  * Author URI:        https://notice.studio
  * License:           GPL-3.0
@@ -18,11 +18,16 @@ if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
-function notice_init()
-{
+add_action('init', function () {
 	//--------------//
 	// Notice Block //
 	//--------------//
+
+	// @deprecated (for compatibility)
+	require_once __DIR__ . '/block/deprecated/index.php';
+	add_action('enqueue_block_editor_assets', function () {
+		notice_old_block();
+	}, 10, 0);
 
 	register_block_type(__DIR__ . '/block/build');
 
@@ -34,11 +39,28 @@ function notice_init()
 		require_once(__DIR__ . '/widget/notice-widget.php');
 
 		$widgets_manager->register(new \Elementor_Notice_Widget());
-	});
+	}, 10, 1);
 
 	//------------------//
 	// Notice shortcode //
 	//------------------//
+
+	// @deprecated (for compatibility)
+	add_shortcode('noticefaq', function ($atts) {
+		extract(
+			shortcode_atts(
+				array(
+					'projectid' => ''
+				),
+				$atts
+			)
+		);
+
+		$output = '<script defer="defer" charset="UTF-8" src="https://bundle.notice.studio/index.js"></script>';
+		$output .= '<div class="notice-target-container" project-id="' . $projectid . '" notice-integration="wordpress-plugin"></div>';
+
+		return $output;
+	});
 
 	add_shortcode('notice-block', function ($atts) {
 		extract(
@@ -61,15 +83,19 @@ function notice_init()
 	//-------------//
 
 	require_once __DIR__ . '/includes/head.php';
-
-	add_action('wp_head', 'notice_head', 10);
+	add_action('wp_head', function () {
+		try {
+			notice_head();
+		} catch (Exception $e) {
+			return;
+		}
+	}, 10, 0);
 
 	//------------//
 	// Admin Menu //
 	//------------//
 
 	require_once __DIR__ . '/includes/admin-menu.php';
-
 	add_action('admin_menu', function () {
 		add_menu_page(
 			'Notice',
@@ -80,7 +106,5 @@ function notice_init()
 			'dashicons-lightbulb',
 			10
 		);
-	});
-}
-
-add_action('init', 'notice_init');
+	}, 10, 0);
+}, 10, 0);

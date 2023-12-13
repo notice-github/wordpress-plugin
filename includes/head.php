@@ -74,41 +74,45 @@ function extract_blocks(array $elements, array $blocks = [])
 
 function notice_head()
 {
-	try {
-		$post = get_post();
-		$is_elementor = (bool)get_post_meta($post->ID, '_elementor_edit_mode', true);
+	$post = get_post();
+	$is_elementor = (bool)get_post_meta($post->ID, '_elementor_edit_mode', true);
 
-		if ($is_elementor) {
-			$document = Elementor\Plugin::$instance->documents->get($post->ID);
+	if ($is_elementor) {
+		$document = Elementor\Plugin::$instance->documents->get($post->ID);
 
-			$elements = $document->get_elements_raw_data();
-			if (empty($elements)) return;
+		$elements = $document->get_elements_raw_data();
+		if (empty($elements)) return;
 
-			$blocks = extract_blocks($elements);
+		$blocks = extract_blocks($elements);
 
-			foreach ($blocks as $block) {
-				if (!array_key_exists('project_id', $block['settings'])) continue;
+		foreach ($blocks as $block) {
+			if (!array_key_exists('project_id', $block['settings'])) continue;
 
-				$projectId = $block['settings']['project_id'];
+			$projectId = $block['settings']['project_id'];
+			if (empty($projectId)) continue;
+
+			add_block_head($projectId);
+		}
+	} else {
+		$blocks = parse_blocks($post->post_content);
+		$script_injected = false;
+
+		foreach ($blocks as $block) {
+			// @deprecated (for compatibility)
+			if ($block['blockName'] === 'noticefaq-block/noticefaq' && !$script_injected) {
+				echo '<script defer="defer" charset="UTF-8" src="https://bundle.notice.studio/index.js"></script>';
+				$script_injected = true;
+				continue;
+			}
+
+			if ($block['blockName'] === 'noticefaq/block') {
+				if (!array_key_exists('projectId', $block['attrs'])) continue;
+
+				$projectId = $block['attrs']['projectId'];
 				if (empty($projectId)) continue;
 
 				add_block_head($projectId);
 			}
-		} else {
-			$blocks = parse_blocks($post->post_content);
-
-			foreach ($blocks as $block) {
-				if ($block['blockName'] === 'noticefaq/block') {
-					if (!array_key_exists('projectId', $block['attrs'])) continue;
-
-					$projectId = $block['attrs']['projectId'];
-					if (empty($projectId)) continue;
-
-					add_block_head($projectId);
-				}
-			}
 		}
-	} catch (Exception $e) {
-		return;
 	}
 }
