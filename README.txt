@@ -1,6 +1,6 @@
-=== Accordion FAQ / Blog Article - Notice page builder ===
+=== Wordpress Accordion FAQ / Blog Articles with AI assisted content generation ===
 Contributors: qchantelnotice, jonasroussel
-Tags: notice, faq, blog, article, ai, page builder, elementor, gutenberg
+Tags: notice, faq, blog, article, ai, cotent generation, elementor, gutenberg
 Requires at least: 5.0
 Requires PHP: 6.0
 Tested up to: 6.4.2
@@ -9,16 +9,6 @@ License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 // TODO
-
-
-
-
-
-
-
-
-
-
 
 == Description ==
 
@@ -41,100 +31,51 @@ https://www.youtube.com/watch?v=JrYXhDjR48U&list=PLi_eEmTnofgONP2tS_k74RMK6kJ39_
 ### **DOCS AND SUPPORT**
 
 - Support email: contact@notice.studio
-- General documentation: [https://documentation.mynotice.io/](https://documentation.mynotice.io/)
-- WordPress installation guide: [https://integrations.mynotice.io/wordpress-c2f5](https://integrations.mynotice.io/wordpress-c2f5)
-- Tutorials: [https://www.youtube.com/channel/UCjplZkfyVJKV6wkRKWUWILw](https://www.youtube.com/channel/UCjplZkfyVJKV6wkRKWUWILw)
-- Privacy policy: [https://7783b6bd-f8da-45c1-867b-34ea43706329.mynotice.io/](https://7783b6bd-f8da-45c1-867b-34ea43706329.mynotice.io/)
-- Terms of use: [https://4c73a00c-2b85-477f-863f-df1287569f00.mynotice.io/](https://4c73a00c-2b85-477f-863f-df1287569f00.mynotice.io/)
+- [General documentation](https://documentation.notice.studio)
+- [WordPress installation guide](https://integrations.notice.site/wordpress-g7dqh4j15j)
+- [Tutorials](https://www.youtube.com/channel/UCjplZkfyVJKV6wkRKWUWILw)
+- [Terms of use](https://4c73a00c-2b85-477f-863f-df1287569f00.notice.site)
+- [Privacy policy](https://7783b6bd-f8da-45c1-867b-34ea43706329.notice.site)
 
 ### **PRIVACY NOTICES**
 
-With the default configuration, this plugin, in itself, does not:
+This Wordpress plugin:
 
-- track users by stealth
-- write any user personal data to the database
-- send any data to external servers
-- use cookies
-
-If you activate certain features in this plugin, the contact form submitter’s personal data including their IP address may be sent to the service provider.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Do not track users by stealth
+- Do not write any user personal data to the database
+- Do not send any data to external servers
+- Do not use cookies
 
 
 == Installation ==
 
-### **AUTOMATIC INSTALLATION VIA THE PUGLIN LIBRARY**
+= Minimum Requirements =
 
-You can find our plugin at this address: [https://wordpress.org/plugins/notice-faq/](https://wordpress.org/plugins/notice-faq/)
+* WordPress 5.0 or greater
+* PHP version 6.0 or greater
 
-### STEP BY STEP
+= Recommended Requirements =
 
-1. Upload the entire `noticefaq` folder to the `/wp-content/plugins/` directory
-2. Activate the plugin through the **Plugins** **Menu** (**Plugins > Installed Plugins**)
-3. Sign up on notice.studio
-4. Create your project (FAQ, blog, doc, and more) and publish it
+* WordPress 6.0 or greater
+* PHP version 7.4 or greater
+
+= Installation =
+
+1. Install using the WordPress built-in Plugin installer, or Extract the zip file and drop the contents in the `wp-content/plugins/` directory of your WordPress installation.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Optional: Sign In/Up inside the embedded Notice editor
+4. Create your project (FAQ, Blog, Article, etc.) and publish it
 5. Go to Integrations → WordPress → Copy your ID project
 6. Come back to WordPress → add a new block → select Notice
 7. Drag and drop the Notice block anywhere you want on your page and paste the ID project
 8. Click on Update, and than View page to check your project live
 
-
-
-
-
-
-
-
-
-
-
-
-
+For documentation and tutorials visit our [Wordpress Integration](https://integrations.notice.site/wordpress-g7dqh4j15j).
 
 
 == Frequently Asked Questions ==
 
-Do you have questions or issues with Notice ? Use these support channels appropriately.
-
-1. [General documentation](https://documentation.mynotice.io/)
-2. [Wordpress documentation](https://integrations.mynotice.io/wordpress-c2f5)
-
-You can contact us for any issue or question at contact@notice.studio.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// TODO
 
 
 == Screenshots ==
@@ -158,31 +99,6 @@ You can contact us for any issue or question at contact@notice.studio.
 9. Extra features: translate your content in 100+ languages and offer a better experience for your audience
 
 10. Extra feature: gain insights with our Analytics - check visits, location and device info of your users, what they’re looking for on the search bar, and much more
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 == Changelog ==
@@ -235,3 +151,10 @@ Releases are published on our changelog [changelog](https://changelog.notice.stu
 - New Gutenberg editor block
 - New Elementor widget
 - Everything is now server side rendered
+
+= 2.1.0 =
+- Add retro compatible blocks
+- Fix wp_head problems
+
+= 2.1.1 =
+- Update the README
