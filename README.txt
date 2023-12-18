@@ -7,6 +7,7 @@ Tested up to: 6.4.2
 Stable tag: 2.2.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Donate link: https://notice.studio/pricing
 
 Flexible and SEO-optimized builder for accordion FAQs. Notice FAQs are responsive customizable. They are empowered with an AI assistant for text/image generation, reformulation, correction, translation. Compatible with Elementor and Gutemberg.
 
@@ -18,7 +19,7 @@ https://www.youtube.com/watch?v=rp3ZPu1xGsA
 
 Craft FAQs and Accordions with toggle/collapse effects, fully customized styles, and organized by categories. You can optimize user experience by adding a search bar and contact form to your FAQ. Benefit from multilingual SEO advantages by translating FAQs into multiple languages in just one click.
 
-Use the Notice WP Plugin to create unlimited content blocks – beautiful blogs, SEO-friendly articles, documentation, and job boards. Experience 10x faster content generation with AI, getting tailored FAQs for your business by typing your website URL or providing a prompt.
+Use the Notice WP Plugin to create unlimited content blocks, beautiful blogs, SEO-friendly articles, documentation, and job boards. Experience 10x faster content generation with AI, getting tailored FAQs for your business by typing your website URL or providing a prompt.
 
 AI feature includes writing assistance, translation, and image generation.
 
@@ -86,6 +87,7 @@ https://www.youtube.com/watch?v=JrYXhDjR48U&list=PLi_eEmTnofgONP2tS_k74RMK6kJ39_
 ### **PRIVACY NOTICES**
 
 This Wordpress plugin:
+
   - Do not track users by stealth
   - Do not write any user personal data to the database
   - Do not send any data to external servers
@@ -115,13 +117,10 @@ This Wordpress plugin:
 7. Drag and drop the Notice block anywhere you want on your page and paste the ID project
 8. Click on Update, and than View page to check your project live
 
-For documentation and tutorials visit our [Wordpress Integration](https://integrations.notice.site/wordpress-g7dqh4j15j).
+If you encounter any difficulty you can contact us on our [slack channel](https://join.slack.com/t/noticegroupe/shared_invite/zt-21nkruxea-gTZ5jfvevH49JvzQrHdfhQ)
 
 
 == Frequently Asked Questions ==
-
-**How to install the Plugin ?**
-You can find the installation details explained in the section above. If you encounter any difficulty you can contact us on our [slack channel](https://join.slack.com/t/noticegroupe/shared_invite/zt-21nkruxea-gTZ5jfvevH49JvzQrHdfhQ)
 
 **Can I use Notice with Gutenberg/Elementor ?** 
 Yes, you just have to follow the same method as with wordpress and copy paste your Notice project ID.
@@ -240,3 +239,12 @@ Releases are published on our changelog [changelog](https://changelog.notice.stu
 - Update the README
 - Fix front page
 - Add a link to Notice editor on the Gutenberg block
+
+
+== Upgrade Notice ==
+
+= 2.1.0 =
+Mandatory hotfix for users using Wordpress v5.x
+
+= 2.2.0 =
+Important update that will fix a lot of problems that come from the 2.0, include all changes from 2.1.0
