@@ -57,33 +57,48 @@ function add_block_head($target)
 	}
 }
 
-function extract_blocks(array $elements, array $blocks = [])
+function flatten_blocks(array $blocks, array $keys, array $flattened = [])
 {
-	foreach ($elements as $element) {
-		if (array_key_exists('widgetType', $element) && $element['widgetType'] === 'noticefaq') {
-			$blocks[] = $element;
+	foreach ($blocks as $block) {
+		if (array_key_exists($keys['detectField'], $block) && $block[$keys['detectField']] === $keys['detectValue']) {
+			$flattened[] = $block;
 		}
 
-		if (array_key_exists('elements', $element) && !empty($element['elements'])) {
-			$blocks = extract_blocks($element['elements'], $blocks);
+		if (array_key_exists($keys['recursionField'], $block) && !empty($block[$keys['recursionField']])) {
+			$flattened = flatten_blocks($block[$keys['recursionField']], $keys, $flattened);
 		}
 	}
 
-	return $blocks;
+	return $flattened;
 }
 
 function notice_head()
 {
-	$post = get_post();
-	$is_elementor = (bool)get_post_meta($post->ID, '_elementor_edit_mode', true);
+	if (is_front_page()) {
+		global $_wp_current_template_content;
+
+		$post_content = $_wp_current_template_content;
+		$is_elementor = false;
+	} else {
+		$post = get_post();
+		if (is_null($post) || empty($post)) return;
+
+		$post_content = $post->post_content;
+		$post_id = $post->ID;
+		$is_elementor = (bool)get_post_meta($post_id, '_elementor_edit_mode', true);
+	}
 
 	if ($is_elementor) {
-		$document = Elementor\Plugin::$instance->documents->get($post->ID);
+		$document = Elementor\Plugin::$instance->documents->get($post_id);
 
-		$elements = $document->get_elements_raw_data();
-		if (empty($elements)) return;
+		$blocks = $document->get_elements_raw_data();
+		if (empty($blocks)) return;
 
-		$blocks = extract_blocks($elements);
+		$blocks = flatten_blocks($blocks, array(
+			'detectField' => 'widgetType',
+			'detectValue' => 'noticefaq',
+			'recursionField' => 'elements'
+		));
 
 		foreach ($blocks as $block) {
 			if (!array_key_exists('project_id', $block['settings'])) continue;
@@ -94,8 +109,14 @@ function notice_head()
 			add_block_head($projectId);
 		}
 	} else {
-		$blocks = parse_blocks($post->post_content);
+		$blocks = parse_blocks($post_content);
 		$script_injected = false;
+
+		$blocks = flatten_blocks($blocks, array(
+			'detectField' => 'blockName',
+			'detectValue' => 'noticefaq/block',
+			'recursionField' => 'innerBlocks'
+		));
 
 		foreach ($blocks as $block) {
 			// @deprecated (for compatibility)

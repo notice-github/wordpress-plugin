@@ -6,7 +6,7 @@
  * Description:       The official Notice Wordpress Plugin. Notice allows you to create, translate, and deploy content quickly and easily everywhere on the web.
  * Requires at least: 5.0
  * Requires PHP:      6.0
- * Version:           2.1.0
+ * Version:           2.2.0
  * Author:            Notice
  * Author URI:        https://notice.studio
  * License:           GPL-3.0

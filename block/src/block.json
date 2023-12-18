@@ -6,7 +6,7 @@
   "title": "Notice",
   "category": "widgets",
   "icon": "lightbulb",
-  "description": "Display any Notice",
+  "description": "Dynamic Notice block",
   "supports": {
     "html": false
   },
