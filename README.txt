@@ -72,7 +72,7 @@ https://www.youtube.com/watch?v=JrYXhDjR48U&list=PLi_eEmTnofgONP2tS_k74RMK6kJ39_
 
 ### **LOVE USING NOTICE?**
   - Join our [Slack Channel](https://join.slack.com/t/noticegroupe/shared_invite/zt-21nkruxea-gTZ5jfvevH49JvzQrHdfhQ)
-  - Learn from our quick tutorials on the [Youtube Channel](https://www.youtube.com/watch?v=JrYXhDjR48U&list=PLi_eEmTnofgONP2tS_k74RMK6kJ39_9q2)
+  - Learn from our quick tutorials on the [Youtube Channel](https://www.youtube.com/@Notice.studio)
   - And rate [Notice](https://wordpress.org/plugins/notice-faq/#reviews) on WordPress
 
 ### **DOCS AND SUPPORT**
@@ -92,7 +92,6 @@ This Wordpress plugin:
   - Do not write any user personal data to the database
   - Do not send any data to external servers
   - Do not use cookies
-
 
 == Installation ==
 
@@ -118,7 +117,6 @@ This Wordpress plugin:
 8. Click on Update, and than View page to check your project live
 
 If you encounter any difficulty you can contact us on our [slack channel](https://join.slack.com/t/noticegroupe/shared_invite/zt-21nkruxea-gTZ5jfvevH49JvzQrHdfhQ)
-
 
 == Frequently Asked Questions ==
 
@@ -148,8 +146,6 @@ There are 2 possibilities :
   * If this is a minor issue or mainly a technical one you can contact our support on our app directly in the bubble at the bottom left
   * If you need a demo or want to discuss something directly with the team you can contact us at contact@notice.studio
 
-
-
 == Screenshots ==
 
 1. Find Notice Dashboard on the left side menu after installing and activating the Notice plugin
@@ -177,8 +173,6 @@ There are 2 possibilities :
 12. Extra feature: Gain insights with our Analytics - check visits, location and device info of your users, what they're looking for on the search bar, and much more
 
 13. Extra feature: Customize your project with flexibility to fit your website's design
-
-
 
 == Changelog ==
 
@@ -239,7 +233,6 @@ Releases are published on our changelog [changelog](https://changelog.notice.stu
 - Update the README
 - Fix front page
 - Add a link to Notice editor on the Gutenberg block
-
 
 == Upgrade Notice ==
 

@@ -104,7 +104,7 @@ add_action('init', function () {
 			'noticefaq',
 			'notice_admin_menu',
 			'dashicons-lightbulb',
-			10
+			'58.5'
 		);
 	}, 10, 0);
 }, 10, 0);
