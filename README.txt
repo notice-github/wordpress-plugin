@@ -4,7 +4,7 @@ Tags: notice, faq, seo, ai, cotent generation, elementor, gutenberg
 Requires at least: 5.0
 Requires PHP: 6.0
 Tested up to: 6.4.2
-Stable tag: 2.2.0
+Stable tag: 2.2.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://notice.studio/pricing
@@ -237,6 +237,9 @@ Releases are published on our changelog [changelog](https://changelog.notice.stu
 - Update the README
 - Fix front page
 - Add a link to Notice editor on the Gutenberg block
+
+= 2.2.1 =
+- Update the README
 
 == Upgrade Notice ==
 
