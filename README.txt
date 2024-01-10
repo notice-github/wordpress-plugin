@@ -25,6 +25,10 @@ AI feature includes writing assistance, translation, and image generation.
 
 With a simple shortcode, add FAQs and other blocks to all your pages, anywhere on your site. Compatible with popular page builders like Gutenberg, Elementor, and other systems, ensuring seamless integration into your WordPress themes.
 
+### **WHAT NOTICE WP PLUGIN CAN DO FOR YOU**
+
+[Notice WP Plugin Demo](https://noticedemo.wpcomstaging.com/)
+
 ### **CORE FEATURES**
   - **Block-based**: Easily create and display multiple blocks anywhere on your webpage
   - **Responsive Accordion/Toggle**: Enjoy a fully responsive design for a seamless user experience on any device
